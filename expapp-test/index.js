@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const https = require("https");
-const port = 3000;
+const port = 3010;
 
 function allTodos() {
     return [{
@@ -23,12 +23,12 @@ app.get("/", (req, res) => {
     });
 });
 
-app.get("/todo", (req,res) => {
+app.get("/todo", (req, res) => {
     res.send(allTodos());
 });
 
 app.get("/todo/:id", (req, res) => {
-    const todoID = Math.abs(req.params.id);
+    const todoId = Math.abs(req.params.id);
     let todos = allTodos();
     let todo = todos.find(t => t.id === todoId);
     res.send(todo);
